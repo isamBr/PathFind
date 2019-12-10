@@ -93,7 +93,7 @@ var findShortestPath = function(startCoordinates, grid) {
   };
   
   // This function check a location's status
-  // (a location is "valid" if it is on the grid, is not an "#",
+  // location is "valid" if it is on the grid, is not an "#",
   // and has not yet been visited by our algorithm)
   // Returns "Valid", "Invalid", "Blocked", or "Q"
   var locationStatus = function(location, grid) {
