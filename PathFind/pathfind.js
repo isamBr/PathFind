@@ -1,8 +1,7 @@
 function pathfind(A, P, Q) {
 	
 // Implement your pathfinding function here
-// Create a 5x5 grid
-// Represent the grid as a 2-dimensional array
+// Create a 5x5 grid as a 2-dimensional array
 var gridSize = 5;
 var grid = [];
 for (var i=0; i<gridSize; i++) {
@@ -88,13 +87,13 @@ var findShortestPath = function(startCoordinates, grid) {
 	  }
 	}
   
-	// No valid path found
+	// path not found
 	return false;
   
   };
   
-  // This function will check a location's status
-  // (a location is "valid" if it is on the grid, is not an "obstacle",
+  // This function check a location's status
+  // (a location is "valid" if it is on the grid, is not an "#",
   // and has not yet been visited by our algorithm)
   // Returns "Valid", "Invalid", "Blocked", or "Q"
   var locationStatus = function(location, grid) {
@@ -107,21 +106,19 @@ var findShortestPath = function(startCoordinates, grid) {
 		location.distanceFromTop < 0 ||
 		location.distanceFromTop >= gridSize) {
   
-	  // location is not on the grid--return false
+	  // return false if location is not on the grid
 	  return 'Invalid';
 	} else if (grid[dft][dfl] === 'Q') {
 	  return 'Q';
 	} else if (grid[dft][dfl] !== '.') {
-	  // location is either an obstacle or has been visited
+	  // location is either an Blocked or has been visited
 	  return 'Blocked';
 	} else {
 	  return 'Valid';
 	}
   };
-  
-  
-  // Explores the grid from the given location in the given
-  // direction
+	
+  // Explores the grid from the given location in the given direction
   var exploreInDirection = function(currentLocation, direction, grid) {
 	  
 	var newPath = currentLocation.path.slice();
@@ -147,7 +144,7 @@ var findShortestPath = function(startCoordinates, grid) {
 	  status: 'Unknown'
 	};
 	newLocation.status = locationStatus(newLocation, grid);
-  
+	  
 	// If this new location is valid, mark it as 'Visited'
 	if (newLocation.status === 'Valid') {
 	  grid[newLocation.distanceFromTop][newLocation.distanceFromLeft] = 'Visited';
@@ -155,14 +152,8 @@ var findShortestPath = function(startCoordinates, grid) {
   
 	return newLocation;
   };
-  
-
- 
-  
-  
-  
-  // OK. We have the functions we need--let's run them to get our shortest path!
-  
+    
+  //  get shortest path.
 	var path=findShortestPath(P,grid);
 	if(P[0]==Q[0]&&P[1]==Q[1])
 		return 0;
