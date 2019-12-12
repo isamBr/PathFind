@@ -11,10 +11,8 @@ for (var i=0; i<rows; i++) {
     grid[i][j] = '.';
   }
 }
-
 // first index as "distance from the top row"
 // second index as "distance from the left-most column"
-
 // Represent the grid with '#' is blocked 
 
 for (let r= 0; r< rows; r++) { 
@@ -33,7 +31,7 @@ console.log(grid);
 
 // Start location will be in the following format:
 // [distanceFromTop, distanceFromLeft]
-var findShortestPath = function(startCoordinates, grid) {
+var ShortPath = function(startCoordinates, grid) {
 	var distanceFromTop = startCoordinates[1];
 	var distanceFromLeft = startCoordinates[0];
   
@@ -154,21 +152,13 @@ var findShortestPath = function(startCoordinates, grid) {
   
 	return newLocation;
   };
-  
-
- 
-  
-  
-  
-  // OK. We have the functions we need--let's run them to get our shortest path!
-  
-	var path=findShortestPath(P,grid);
+    
+  //get shortest path!  
+	var path=ShortPath(P,grid);
 	if(P[0]==Q[0]&&P[1]==Q[1])
 		return 0;
 	else
 	return path.length  ; 
-	 
- 
 }
 
 module.exports.pathfind = pathfind
