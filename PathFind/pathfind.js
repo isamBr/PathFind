@@ -1,13 +1,13 @@
 function pathfind(A, P, Q) {
 	
 // Implement your pathfinding function here
-// Create a 5x5 grid
 // Represent the grid as a 2-dimensional array
-var gridSize = 5;
+let rows = A.length;
+let columns = A[0].length;
 var grid = [];
-for (var i=0; i<gridSize; i++) {
+for (var i=0; i<rows; i++) {
   grid[i] = [];
-  for (var j=0; j<gridSize; j++) {
+  for (var j=0; j<columns; j++) {
     grid[i][j] = '.';
   }
 }
@@ -16,8 +16,7 @@ for (var i=0; i<gridSize; i++) {
 // second index as "distance from the left-most column"
 
 // Represent the grid with '#' is blocked 
-let rows = A.length;
-let columns = A[0].length;
+
 for (let r= 0; r< rows; r++) { 
 	for (let c= 0; c < columns; c++) 
 	{ 

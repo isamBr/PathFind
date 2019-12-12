@@ -53,5 +53,18 @@ describe('Pathfind', () => {
     const Q = [2, 3]
     expect(pathfind(A, P, Q)).toBe(8)
   })
+
+  it('example case4', () => {
+    const A = [
+      [true, true, true, true, true,true],
+      [true, false, false, false, true,true],
+      [true, true, true, true, true,true],
+      [true, true, true, true, true,true],
+      [true, true, true, true, true,true]
+    ]
+    const P = [1, 0]
+    const Q = [2, 3]
+    expect(pathfind(A, P, Q)).toBe(6)
+  })
  
 })
